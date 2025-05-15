@@ -48,7 +48,7 @@ Step 1: Environment Setup (Google Colab Recommended)
 Open [Google Colab](https://colab.research.google.com)
 Install required libraries:
 
-
+!pip install transformers datasets peft
 !pip install transformers datasets peft streamlit plotly scikit-learn --quiet
 
 
@@ -87,10 +87,33 @@ Step 4: Sales Forecasting (sales.py)
  -- Save model as `sales_forecaster_multi.pt`
 
 Step 5: Run Dashboard (dashboard.py)
+-------
+from pyngrok import ngrok
+import subprocess
+import nest_asyncio
+import time
 
-bash
-!streamlit run dashboard.py & ngrok http 8501
+# Required to allow nested asyncio loops (for Google Colab, etc.)
+nest_asyncio.apply()
 
+# Authenticate ngrok
+!ngrok authtoken 2wDplgF0KhYmJcS2dOI83dynPHE_5nDg7ek2tS7MiCQMHw8YJ
+
+# Kill any previous tunnels
+ngrok.kill()
+
+# Start the Streamlit app (non-blocking)
+streamlit_cmd = "streamlit run /content/drive/MyDrive/BuisinessStrat/dashboard.py --server.port 8501"
+process = subprocess.Popen(streamlit_cmd, shell=True)
+
+# Wait a few seconds to ensure the server starts
+time.sleep(10)
+
+# Start ngrok tunnel after Streamlit is running
+public_url = ngrok.connect(8501, proto="http", bind_tls=True)
+print(f"Streamlit app is live at: {public_url}")
+
+---------
 
  -- Upload or use default datasets (`processed_data_large.csv` and `sales_data.csv`)
     Explore:
@@ -124,8 +147,8 @@ bash
 
 📦 Sample Data Sources
 
-  [Amazon Reviews Dataset](https://registry.opendata.aws/amazon-reviews/)
-  [Walmart Store Sales Data (Kaggle)](https://www.kaggle.com/datasets/yasserh/walmart-dataset)
+  [Amazon Reviews Dataset](https://www.kaggle.com/datasets/kritanjalijain/amazon-reviews)
+  [Walmart Store Sales Data (Kaggle)](https://www.kaggle.com/code/msjahid/walmart-sales-exploration/input)
 
 
 📌 Future Improvements
