@@ -87,7 +87,7 @@ Step 4: Sales Forecasting (sales.py)
  -- Save model as `sales_forecaster_multi.pt`
 
 Step 5: Run Dashboard (dashboard.py)
--------
+
 from pyngrok import ngrok
 import subprocess
 import nest_asyncio
@@ -143,7 +143,6 @@ print(f"Streamlit app is live at: {public_url}")
 
   Weak supervision used (heuristic sentiment labeling)
   No PII used; all datasets are public or anonymized
-  Conforms to ethical AI practices and reproducibility standards
 
 📦 Sample Data Sources
 
@@ -151,9 +150,3 @@ print(f"Streamlit app is live at: {public_url}")
   [Walmart Store Sales Data (Kaggle)](https://www.kaggle.com/code/msjahid/walmart-sales-exploration/input)
 
 
-📌 Future Improvements
-
-  Real-time streaming support
-  More granular sentiment categories
-  Transformer-based time-series forecasters (e.g., Informer, TFT)
-  Integration with CRM or ERP systems
