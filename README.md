@@ -97,7 +97,7 @@ import time
 nest_asyncio.apply()
 
 # Authenticate ngrok
-!ngrok authtoken 2wDplgF0KhYmJcS2dOI83dynPHE_5nDg7ek2tS7MiCQMHw8YJ
+!ngrok authtoken <YOUR-NGROK-API-KEY>
 
 # Kill any previous tunnels
 ngrok.kill()
