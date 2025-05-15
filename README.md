@@ -29,16 +29,16 @@ Core Components:
 # Project Structure
 
 
-├── app.py                 # Sentiment analysis pipeline
-├── sales.py              # LSTM forecasting pipeline
-├── dashboard.py          # Streamlit UI for both models
-├── model.py              # LoRA-enhanced DistilGPT-2
-├── final_model/          # Saved DistilGPT-2 model
-├── sales_forecaster_multi.pt # Saved LSTM model
-├── processed_data_large.csv  # Preprocessed sentiment dataset
-├── sales_data.csv        # Structured sales + economic data
-├── your_reviews.csv      # Synthetic test reviews
-├── README.md             # Project documentation
+├── app.py                      # Sentiment analysis pipeline
+├── sales.py                    # LSTM forecasting pipeline
+├── dashboard.py                # Streamlit UI for both models
+├── model.py                    # LoRA-enhanced DistilGPT-2
+├── final_model/                # Saved DistilGPT-2 model
+├── sales_forecaster_multi.pt   # Saved LSTM model
+├── processed_data_large.csv    # Preprocessed sentiment dataset
+├── sales_data.csv              # Structured sales + economic data
+├── your_reviews.csv            # Synthetic test reviews
+├── README.md                   # Project documentation
 
 
 # How to Run the Project
